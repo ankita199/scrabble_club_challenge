@@ -1,0 +1,43 @@
+<% highest_score_detail = @member.get_highest_score %>
+<div class="col-md-9">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12 lead">Member Profile<hr></div>
+      </div>
+      <div class="row">
+				<div class="col-md-4 text-center">
+          <img class="img-circle avatar avatar-original" style="-webkit-user-select:none; 
+          display:block; margin:auto;" src="http://robohash.org/sitsequiquia.png?size=120x120">
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 class="only-bottom-margin"><%= @member.name %></h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <span class="text-muted">Joining Date:</span> <%= @member.joining_date %><br>
+              <span class="text-muted">Phone Number:</span> <%= @member.phone_number %><br>
+              <span class="text-muted">Number of Wins:</span> <%= @member.get_number_of_wins %><br>
+              <span class="text-muted">Number of Losses:</span> <%= @member.get_number_of_losses %><br>
+              <span class="text-muted">Average Score:</span> <%= @member.average_score %><br>
+              <span class="text-muted">Highest Score:</span> <%= highest_score_detail[:score] || "-" %><br>
+              <span class="text-muted">Match Location:</span> <%= highest_score_detail[:location] %><br>
+              <span class="text-muted">Match Date:</span> <%= highest_score_detail[:held] %><br>
+              <span class="text-muted">Opponent Name:</span> <%= highest_score_detail[:name] %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+          <button class="btn btn-default pull-right"><i class="glyphicon glyphicon-pencil"></i> <%= link_to 'Edit', edit_member_path(@member) %></button>
+          <button class="btn btn-default pull-right"><i class="glyphicon glyphicon-pencil"></i> <%= link_to 'Back', members_path %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
